@@ -39,13 +39,18 @@ class Contractor extends Employee {
   constructor(
     firstName: string,
     lastName: string,
-    private rate: number,
+    private _rate: number,
     private hours: number
   ) {
     super(firstName, lastName);
+    this._rate = _rate;
   }
   getSalary(): number {
-    return this.rate * this.hours;
+    return this._rate * this.hours;
+  }
+
+  public get rate(): number {
+    return this._rate;
   }
 }
 
@@ -57,7 +62,7 @@ console.log(jane.compensationStatement());
 // John Doe makes 12000 a month.
 // Jane Doe makes 16000 a month.
 
-
+console.log(jane.rate);
 // It’s a good practice to use abstract classes when you want to share code among some related classes.
 
 // ? why not use get keyword with getSalary ??
