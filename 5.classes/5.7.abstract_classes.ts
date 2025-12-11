@@ -26,11 +26,16 @@ abstract class Employee {
 
 // but other classes can extend them
 class FullTimeEmployee extends Employee {
-    constructor(firstName: string, lastName: string, private salary: number) {
+    constructor(firstName: string, lastName: string, private _salary: number) {
         super(firstName, lastName);
+        this._salary = _salary;
     }
     getSalary(): number {
-        return this.salary;
+        return this._salary;
+    }
+
+    public get salary(): number {
+      return this._salary;
     }
 }
 
@@ -62,7 +67,11 @@ console.log(jane.compensationStatement());
 // John Doe makes 12000 a month.
 // Jane Doe makes 16000 a month.
 
-console.log(jane.rate);
+console.log(john.salary);
 // It’s a good practice to use abstract classes when you want to share code among some related classes.
 
 // ? why not use get keyword with getSalary ??
+
+
+// IMPORTANT
+// the super() in derived class's constructor, must come before any other new properties specific to that derived class 
