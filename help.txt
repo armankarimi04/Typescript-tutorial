@@ -1,0 +1,2 @@
+- to compile and run ts files:
+> tsx <typescript file>.ts
